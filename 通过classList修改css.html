@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+
+      width: 400px;
+      height: 200px;
+      color: red;
+      font-size: 30px;
+    }
+
+    .example {
+      color: blue;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    通过classList修改css
+  </div>
+  <script>
+    const box = document.querySelector('.box')
+    box.classList.add('example')
+    box.classList.remove('box')
+    box.classList.toggle('example')
+  </script>
+</body>
+
+</html>

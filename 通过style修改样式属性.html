@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      border: 1px solid #000;
+      width: 400px;
+      height: 200px;
+      padding: 50px 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>通过style修改样式属性</h1>
+  </div>
+  <script>
+    const box = document.querySelector('.box')
+    box.style.backgroundColor = 'red'
+    box.style.color = 'white'
+  </script>
+</body>
+
+</html>

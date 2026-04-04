@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      border: 1px solid #000;
+      width: 400px;
+      height: 200px;
+      padding: 50px 100px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <strong>抽奖</strong>
+    <h1>一等奖：<span id="first">???</span></h1>
+    <h2>二等奖：<span id="second">???</span></h2>
+    <h3>三等奖：<span id="third">???</span></h3>
+  </div>
+  <script>
+    const arr = ['张三', '李四', '王五', '赵六', '钱七']
+    let random = Math.floor(Math.random() * arr.length)
+    const one = document.querySelector('#first')
+    one.innerHTML = arr[random]
+    arr.splice(random, 1)
+    random = Math.floor(Math.random() * arr.length)
+    const second = document.querySelector('#second')
+    second.innerHTML = arr[random]
+    arr.splice(random, 1)
+    random = Math.floor(Math.random() * arr.length)
+    const third = document.querySelector('#third')
+    third.innerHTML = arr[random]
+    arr.splice(random, 1)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getMax(a, b) {
+      return a >= b ? a : b
+    }
+    let num1 = +prompt('请输入第一个数字')
+    let num2 = +prompt('请输入第二个数字')
+    document.write(getMax(num1, num2) + '<br>k')
+    function fn(arr = []) {
+      let max = arr[0]
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+          max = arr[i]
+        }
+      }
+      return max
+    }
+    document.write(fn([1, 2, 3, 4, 5]))
+  </script>
+</body>
+
+</html>

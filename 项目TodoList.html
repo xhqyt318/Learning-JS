@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>待办</h1>
+  <form autocomplete="off" class="form">
+    <input type="text" placeholder="添加新任务" class="input">
+    <button class="btn">+</button>
+  </form>
+  <table>
+    <tbody>
+      <tr>
+        <!-- <button data-id="0"></button> -->
+        <td class="task"></td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    const arr = []
+    // document.write(arr.join('<br>'))
+    const form = document.querySelector('.form')
+    const input = document.querySelector('.input')
+    const btn = document.querySelector('.btn')
+    const tbody = document.querySelector('tbody')
+    const task = document.querySelector('.task')
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+      if (input.value === '') {
+        alert('输入任务不能为空')
+        return
+      }
+      arr.push(input.value)
+      input.value = ''
+      this.reset()
+      console.log(arr)
+      render()
+    })
+    function render() {
+      tbody.innerHTML = ''
+      for (let i = 0; i < arr.length; i++) {
+        const tr = document.createElement('tr')
+        tr.innerHTML = `
+        <td>
+          <button data-id=${i}>完成</button>
+        </td>
+        <td class="task" data-id=${i}>${arr[i]}</td>
+        `
+        tbody.appendChild(tr)
+      }
+    }
+    // 3. 完成操作
+    tbody.addEventListener('click', function (e) {
+      if (e.target.tagName === 'BUTTON') {
+        // 得到当前元素的自定义属性 data-id
+        // 先找到按钮对应的tr
+        const atr = e.target.closest('tr')
+        // 再找到tr对应的td
+        // 再找到td对应的th
+        const atd = atr.querySelector('.task')
+        atd.classList.toggle('active')
+        arr.splice(e.target.dataset.id, 1)
+        console.log(arr)
+      }
+    })
+  </script>
+</body>
+
+</html>
